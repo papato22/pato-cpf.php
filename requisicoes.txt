@@ -1,0 +1,226 @@
+'''''''''''''''''get_bear'''''''''''''
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://servicos-cloud.saude.gov.br/pni-bff/v1/autenticacao/tokenAcesso');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'Host: servicos-cloud.saude.gov.br',
+    'sec-ch-ua: "Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
+    'accept: application/json',
+    'x-authorization: Basic bWFyY2lhaGV2QGdtYWlsLmNvbTptYXJjaWFjb3N0YTE=',
+    'sec-ch-ua-mobile: ?0',
+    'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+    'sec-ch-ua-platform: "Windows"',
+    'origin: https://si-pni.saude.gov.br',
+    'sec-fetch-site: same-site',
+    'sec-fetch-mode: cors',
+    'sec-fetch-dest: empty',
+    'referer: https://si-pni.saude.gov.br/',
+    'accept-language: pt,pt-PT;q=0.9,en-US;q=0.8,en;q=0.7',
+    'priority: u=1, i',
+    'Content-Type: application/x-www-form-urlencoded',
+    'Accept-Encoding: gzip',
+]);
+curl_setopt($ch, CURLOPT_POSTFIELDS, '');
+
+$response = curl_exec($ch);
+
+curl_close($ch);
+
+''''''''''''''''POSSIVEIS tokenAcesso'''''''''''''
+client_id=77185425430.apps.googleusercontent.com&client_secret=OTJgUOQcT7lO7GsGZq2G4IlT&grant_type=refresh_token&refresh_token=1//06UEzSBokyPRLCgYIARAAGAYSNwF-L9Ir2NVQGIq7IiKnbzuyeSbdH_4Kj9NNnx3BzrVlslwYy-QaGEgCDsPiTzd_xJMJDXNZ7G0&scope=https://www.googleapis.com/auth/identity.passwords.leak.check
+
+
+
+{
+    "access_token": "ya29.a0AXooCgsb6kfx2XN7AwWUVXhhA2OdD1wqBKvMs8JjxA5Qr5D5lbOy_jA8umK9q5TTGw3UnkzkFjvgSh3CAf3zDiQaKjLl7WTyXjI1mcekh0BwrcUOzlUiDbMG5oaP_mnc0SMRPcIoM4LbfspFdaUHE44f_fmnLmxMCAnpPUL4QUwzrNQHF1wYEIB1C46E8cpFOOCUqajaqSiRKjYwMWW4GgWUaHSgKkJLAJhPFijs_ayrkfD9RSI-uYveeqIQ363kRp4Yz8nB4v4aCgYKAZASARMSFQHGX2MiXJ2YSHZULAv6oAbatsVB_Q0274",
+    "expires_in": 3599,
+    "scope": "https://www.googleapis.com/auth/identity.passwords.leak.check",
+    "token_type": "Bearer"
+    client_id=77185425430.apps.googleusercontent.com&client_secret=OTJgUOQcT7lO7GsGZq2G4IlT&grant_type=refresh_token&refresh_token=1//06UEzSBokyPRLCgYIARAAGAYSNwF-L9Ir2NVQGIq7IiKnbzuyeSbdH_4Kj9NNnx3BzrVlslwYy-QaGEgCDsPiTzd_xJMJDXNZ7G0&scope=https://www.googleapis.com/auth/identity.passwords.leak.check
+    
+
+  }
+
+
+
+
+#primeira
+
+
+<?php
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://servicos-cloud.saude.gov.br/pni-bff/v1/cidadao/cpf/17291769760');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'Host: servicos-cloud.saude.gov.br',
+    'sec-ch-ua: "Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
+    'accept: application/json, text/plain, */*',
+    'sec-ch-ua-mobile: ?0',
+    'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiI3Mzc4NzY0NzI4NyIsIm9yaWdlbSI6IlNDUEEiLCJpc3MiOiJzYXVkZS5nb3YuYnIiLCJub21lIjoiTUFSQ0lBIERFIFNPVVNBIENPU1RBIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9TSS1QTklfT0VTQyIsIlJPTEVfU0NQQVNJU1RFTUFfR0VTIiwiUk9MRV9TSS1QTkkiLCJST0xFX1NDUEFfVVNSIiwiUk9MRV9TQ1BBU0lTVEVNQSIsIlJPTEVfU0ktUE5JX0dFU0EiLCJST0xFX1NDUEEiLCJST0xFX1NJLVBOSV9PRVMiXSwiY2xpZW50X2lkIjoiU0ktUE5JIiwic2NvcGUiOlsiQ05TRElHSVRBTCIsIkdPVkJSIiwiU0NQQSJdLCJjbmVzIjoiOTgwMDE2Mjg1OTI5NjMyIiwib3JnYW5pemF0aW9uIjoiREFUQVNVUyIsImNwZiI6IjczNzg3NjQ3Mjg3IiwiZXhwIjoxNzE1Nzg2NzM4LCJqdGkiOiJhN2MwYTllOS01ZmZjLTRjZmEtYTI3NC0wNGFmYTdiMjQ3M2EiLCJrZXkiOiI0Mzc5OTUiLCJlbWFpbCI6Im1hcmNpYWhldkBnbWFpbC5jb20ifQ.3zYOiQyQ0RmOK9GLxZnHddl-T_zJl5zncNU2u6A35bA',
+    'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+    'sec-ch-ua-platform: "Windows"',
+    'origin: https://si-pni.saude.gov.br',
+    'sec-fetch-site: same-site',
+    'sec-fetch-mode: cors',
+    'sec-fetch-dest: empty',
+    'referer: https://si-pni.saude.gov.br/',
+    'accept-language: pt,pt-PT;q=0.9,en-US;q=0.8,en;q=0.7',
+    'priority: u=1, i',
+    'Accept-Encoding: gzip',
+]);
+
+$response = curl_exec($ch);
+
+curl_close($ch);
+
+
+
+#segunda
+
+
+<?php
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://servicos-cloud.saude.gov.br/pni-bff/v1/municipio/330455');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'Host: servicos-cloud.saude.gov.br',
+    'sec-ch-ua: "Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
+    'accept: application/json, text/plain, */*',
+    'sec-ch-ua-mobile: ?0',
+    'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiI3Mzc4NzY0NzI4NyIsIm9yaWdlbSI6IlNDUEEiLCJpc3MiOiJzYXVkZS5nb3YuYnIiLCJub21lIjoiTUFSQ0lBIERFIFNPVVNBIENPU1RBIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9TSS1QTklfT0VTQyIsIlJPTEVfU0NQQVNJU1RFTUFfR0VTIiwiUk9MRV9TSS1QTkkiLCJST0xFX1NDUEFfVVNSIiwiUk9MRV9TQ1BBU0lTVEVNQSIsIlJPTEVfU0ktUE5JX0dFU0EiLCJST0xFX1NDUEEiLCJST0xFX1NJLVBOSV9PRVMiXSwiY2xpZW50X2lkIjoiU0ktUE5JIiwic2NvcGUiOlsiQ05TRElHSVRBTCIsIkdPVkJSIiwiU0NQQSJdLCJjbmVzIjoiOTgwMDE2Mjg1OTI5NjMyIiwib3JnYW5pemF0aW9uIjoiREFUQVNVUyIsImNwZiI6IjczNzg3NjQ3Mjg3IiwiZXhwIjoxNzE1Nzg2NzM4LCJqdGkiOiJhN2MwYTllOS01ZmZjLTRjZmEtYTI3NC0wNGFmYTdiMjQ3M2EiLCJrZXkiOiI0Mzc5OTUiLCJlbWFpbCI6Im1hcmNpYWhldkBnbWFpbC5jb20ifQ.3zYOiQyQ0RmOK9GLxZnHddl-T_zJl5zncNU2u6A35bA',
+    'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+    'sec-ch-ua-platform: "Windows"',
+    'origin: https://si-pni.saude.gov.br',
+    'sec-fetch-site: same-site',
+    'sec-fetch-mode: cors',
+    'sec-fetch-dest: empty',
+    'referer: https://si-pni.saude.gov.br/',
+    'accept-language: pt,pt-PT;q=0.9,en-US;q=0.8,en;q=0.7',
+    'priority: u=1, i',
+    'Accept-Encoding: gzip',
+]);
+
+$response = curl_exec($ch);
+
+curl_close($ch);
+
+
+#segunda tbm
+
+<?php
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://servicos-cloud.saude.gov.br/pni-bff/v1/municipio/330455');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'Host: servicos-cloud.saude.gov.br',
+    'sec-ch-ua: "Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
+    'accept: application/json, text/plain, */*',
+    'sec-ch-ua-mobile: ?0',
+    'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiI3Mzc4NzY0NzI4NyIsIm9yaWdlbSI6IlNDUEEiLCJpc3MiOiJzYXVkZS5nb3YuYnIiLCJub21lIjoiTUFSQ0lBIERFIFNPVVNBIENPU1RBIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9TSS1QTklfT0VTQyIsIlJPTEVfU0NQQVNJU1RFTUFfR0VTIiwiUk9MRV9TSS1QTkkiLCJST0xFX1NDUEFfVVNSIiwiUk9MRV9TQ1BBU0lTVEVNQSIsIlJPTEVfU0ktUE5JX0dFU0EiLCJST0xFX1NDUEEiLCJST0xFX1NJLVBOSV9PRVMiXSwiY2xpZW50X2lkIjoiU0ktUE5JIiwic2NvcGUiOlsiQ05TRElHSVRBTCIsIkdPVkJSIiwiU0NQQSJdLCJjbmVzIjoiOTgwMDE2Mjg1OTI5NjMyIiwib3JnYW5pemF0aW9uIjoiREFUQVNVUyIsImNwZiI6IjczNzg3NjQ3Mjg3IiwiZXhwIjoxNzE1Nzg2NzM4LCJqdGkiOiJhN2MwYTllOS01ZmZjLTRjZmEtYTI3NC0wNGFmYTdiMjQ3M2EiLCJrZXkiOiI0Mzc5OTUiLCJlbWFpbCI6Im1hcmNpYWhldkBnbWFpbC5jb20ifQ.3zYOiQyQ0RmOK9GLxZnHddl-T_zJl5zncNU2u6A35bA',
+    'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+    'sec-ch-ua-platform: "Windows"',
+    'origin: https://si-pni.saude.gov.br',
+    'sec-fetch-site: same-site',
+    'sec-fetch-mode: cors',
+    'sec-fetch-dest: empty',
+    'referer: https://si-pni.saude.gov.br/',
+    'accept-language: pt,pt-PT;q=0.9,en-US;q=0.8,en;q=0.7',
+    'priority: u=1, i',
+    'Accept-Encoding: gzip',
+]);
+
+$response = curl_exec($ch);
+
+curl_close($ch);
+
+#terceira
+
+<?php
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://servicos-cloud.saude.gov.br/pni-bff/v1/racacor/01');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'Host: servicos-cloud.saude.gov.br',
+    'sec-ch-ua: "Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
+    'accept: application/json, text/plain, */*',
+    'sec-ch-ua-mobile: ?0',
+    'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiI3Mzc4NzY0NzI4NyIsIm9yaWdlbSI6IlNDUEEiLCJpc3MiOiJzYXVkZS5nb3YuYnIiLCJub21lIjoiTUFSQ0lBIERFIFNPVVNBIENPU1RBIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9TSS1QTklfT0VTQyIsIlJPTEVfU0NQQVNJU1RFTUFfR0VTIiwiUk9MRV9TSS1QTkkiLCJST0xFX1NDUEFfVVNSIiwiUk9MRV9TQ1BBU0lTVEVNQSIsIlJPTEVfU0ktUE5JX0dFU0EiLCJST0xFX1NDUEEiLCJST0xFX1NJLVBOSV9PRVMiXSwiY2xpZW50X2lkIjoiU0ktUE5JIiwic2NvcGUiOlsiQ05TRElHSVRBTCIsIkdPVkJSIiwiU0NQQSJdLCJjbmVzIjoiOTgwMDE2Mjg1OTI5NjMyIiwib3JnYW5pemF0aW9uIjoiREFUQVNVUyIsImNwZiI6IjczNzg3NjQ3Mjg3IiwiZXhwIjoxNzE1Nzg2NzM4LCJqdGkiOiJhN2MwYTllOS01ZmZjLTRjZmEtYTI3NC0wNGFmYTdiMjQ3M2EiLCJrZXkiOiI0Mzc5OTUiLCJlbWFpbCI6Im1hcmNpYWhldkBnbWFpbC5jb20ifQ.3zYOiQyQ0RmOK9GLxZnHddl-T_zJl5zncNU2u6A35bA',
+    'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+    'sec-ch-ua-platform: "Windows"',
+    'origin: https://si-pni.saude.gov.br',
+    'sec-fetch-site: same-site',
+    'sec-fetch-mode: cors',
+    'sec-fetch-dest: empty',
+    'referer: https://si-pni.saude.gov.br/',
+    'accept-language: pt,pt-PT;q=0.9,en-US;q=0.8,en;q=0.7',
+    'priority: u=1, i',
+    'Accept-Encoding: gzip',
+]);
+
+$response = curl_exec($ch);
+
+curl_close($ch);
+
+#terceira tbm
+
+<?php
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://servicos-cloud.saude.gov.br/pni-bff/v1/racacor/01');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'OPTIONS');
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'Host: servicos-cloud.saude.gov.br',
+    'accept: */*',
+    'access-control-request-method: GET',
+    'access-control-request-headers: authorization',
+    'origin: https://si-pni.saude.gov.br',
+    'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+    'sec-fetch-mode: cors',
+    'sec-fetch-site: same-site',
+    'sec-fetch-dest: empty',
+    'referer: https://si-pni.saude.gov.br/',
+    'accept-language: pt,pt-PT;q=0.9,en-US;q=0.8,en;q=0.7',
+    'priority: u=1, i',
+    'Accept-Encoding: gzip',
+]);
+
+$response = curl_exec($ch);
+
+curl_close($ch);
+
+#quarta
+
+
+<?php
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://servicos-cloud.saude.gov.br/pni-bff/v1/calendario/cpf/17291769760');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'Host: servicos-cloud.saude.gov.br',
+    'sec-ch-ua: "Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
+    'accept: application/json, text/plain, */*',
+    'sec-ch-ua-mobile: ?0',
+    'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiI3Mzc4NzY0NzI4NyIsIm9yaWdlbSI6IlNDUEEiLCJpc3MiOiJzYXVkZS5nb3YuYnIiLCJub21lIjoiTUFSQ0lBIERFIFNPVVNBIENPU1RBIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9TSS1QTklfT0VTQyIsIlJPTEVfU0NQQVNJU1RFTUFfR0VTIiwiUk9MRV9TSS1QTkkiLCJST0xFX1NDUEFfVVNSIiwiUk9MRV9TQ1BBU0lTVEVNQSIsIlJPTEVfU0ktUE5JX0dFU0EiLCJST0xFX1NDUEEiLCJST0xFX1NJLVBOSV9PRVMiXSwiY2xpZW50X2lkIjoiU0ktUE5JIiwic2NvcGUiOlsiQ05TRElHSVRBTCIsIkdPVkJSIiwiU0NQQSJdLCJjbmVzIjoiOTgwMDE2Mjg1OTI5NjMyIiwib3JnYW5pemF0aW9uIjoiREFUQVNVUyIsImNwZiI6IjczNzg3NjQ3Mjg3IiwiZXhwIjoxNzE1Nzg2NzM4LCJqdGkiOiJhN2MwYTllOS01ZmZjLTRjZmEtYTI3NC0wNGFmYTdiMjQ3M2EiLCJrZXkiOiI0Mzc5OTUiLCJlbWFpbCI6Im1hcmNpYWhldkBnbWFpbC5jb20ifQ.3zYOiQyQ0RmOK9GLxZnHddl-T_zJl5zncNU2u6A35bA',
+    'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+    'sec-ch-ua-platform: "Windows"',
+    'origin: https://si-pni.saude.gov.br',
+    'sec-fetch-site: same-site',
+    'sec-fetch-mode: cors',
+    'sec-fetch-dest: empty',
+    'referer: https://si-pni.saude.gov.br/',
+    'accept-language: pt,pt-PT;q=0.9,en-US;q=0.8,en;q=0.7',
+    'priority: u=1, i',
+    'Accept-Encoding: gzip',
+]);
+
+$response = curl_exec($ch);
+
+curl_close($ch);
+
+#quartatbm
